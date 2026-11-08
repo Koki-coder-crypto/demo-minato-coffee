@@ -1,0 +1,158 @@
+/* 古民家カフェ 湊珈琲 style-v3.css（2026-11-08 全面刷新）
+   店専用システム：和紙色 #F8F3E8／墨色 #33302A／苔色 #44513C／CTAのみ柿渋色 #9E3D1E
+   フォント: Noto Sans JP 500 / 700 / 900 のみ（明朝不使用。字間と太さで和を作る）。角丸なし。 */
+:root{
+  --washi:#F8F3E8; --washi2:#EFE6D2; --sumi:#33302A; --moss:#44513C; --cta:#9E3D1E;
+  --rule:#44513C; --rule-soft:#CFC4A6;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s6:48px; --s8:64px; --s12:96px;
+}
+*,*::before,*::after{box-sizing:border-box;border-radius:0}
+html{scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--washi);color:var(--sumi);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;font-weight:500;font-size:16px;line-height:1.9;padding-bottom:72px}
+@media(min-width:768px){body{padding-bottom:0}}
+h1,h2,h3,p,ul,dl,dd,figure,table{margin:0;padding:0}
+ul{list-style:none}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit}
+a{color:var(--moss);text-decoration:underline;text-underline-offset:3px}
+a:hover{text-decoration-thickness:3px}
+:focus-visible{outline:3px solid var(--sumi);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-100px;background:#fff;color:var(--sumi);padding:8px 16px;z-index:100}
+.skip:focus{top:8px}
+.narrow{width:min(880px,calc(100% - 32px));margin-inline:auto}
+@media(min-width:768px){.narrow{width:min(880px,calc(100% - 48px))}}
+.btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-height:64px;padding:8px 32px;border:2px solid transparent;font-weight:700;font-size:16px;line-height:1.4;text-align:center;text-decoration:none;width:100%}
+@media(min-width:600px){.btn{width:auto;min-width:360px}}
+.btn-cta{background:var(--cta);color:#fff;border-color:var(--cta)}
+.btn-sub{background:var(--washi);color:var(--moss);border-color:var(--moss)}
+.btn-num{font-weight:900;font-size:26px;font-variant-numeric:tabular-nums}
+.cta-center{text-align:center;margin-top:32px}
+.demo-banner{background:var(--sumi);color:#fff;font-weight:700;font-size:14px;text-align:center;padding:8px 16px}
+/* ヘッダー */
+.site-header{background:var(--washi);border-bottom:1px solid var(--rule)}
+.header-inner{width:min(1120px,calc(100% - 32px));margin-inline:auto;display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:16px;padding-top:8px}
+.logo{font-weight:900;font-size:20px;letter-spacing:.08em;color:var(--sumi);text-decoration:none;display:inline-flex;align-items:center;min-height:48px}
+.header-tel{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;min-height:48px;color:var(--sumi);text-decoration:none;line-height:1.3}
+.header-tel-label{display:none;font-size:12px;font-weight:700}
+.header-tel-num{font-weight:900;font-size:20px;font-variant-numeric:tabular-nums;text-decoration:underline;text-underline-offset:3px}
+.gnav{grid-column:1/-1;border-top:1px solid var(--rule-soft)}
+.gnav ul{display:flex;flex-wrap:wrap;column-gap:24px}
+.gnav a{display:inline-flex;align-items:center;min-height:48px;font-weight:700;font-size:15px;color:var(--sumi);text-decoration:none}
+@media(min-width:960px){
+  .header-inner{grid-template-columns:auto 1fr auto;padding-top:0}
+  .logo{font-size:23px;min-height:80px}
+  .gnav{grid-column:2;border-top:0;justify-self:end}
+  .gnav ul{flex-wrap:nowrap}
+  .header-tel{grid-column:3}
+  .header-tel-label{display:block}
+  .header-tel-num{font-size:26px}
+}
+/* 見出し：中央揃え＋上下の細罫 */
+.h2{font-weight:900;font-size:25px;letter-spacing:.1em;line-height:1.5;color:var(--moss);text-align:center;padding:16px 0;margin-bottom:40px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+@media(min-width:768px){.h2{font-size:32px;margin-bottom:48px}}
+.h2-access{margin-top:64px}
+.h2-light{color:#fff;border-color:#fff}
+.h2-small{font-size:17px}
+.h3{font-weight:700;font-size:20px;letter-spacing:.06em;color:var(--moss);text-align:center;margin:56px 0 24px}
+.h3::after{content:"";display:block;width:40px;height:2px;background:var(--moss);margin:10px auto 0}
+.section{padding:72px 0}
+@media(min-width:768px){.section{padding:112px 0}}
+.section-tint{background:var(--washi2)}
+.section p+p{margin-top:16px}
+.note{font-size:14px;margin-top:16px}
+/* ヒーロー */
+.hero{position:relative;background:var(--moss)}
+.hero-img{width:100%;height:52vh;min-height:340px;object-fit:cover}
+@media(min-width:768px){.hero-img{height:68vh}}
+.hero-name{position:absolute;top:24px;right:24px;writing-mode:vertical-rl;background:var(--washi);color:var(--sumi);font-weight:900;font-size:40px;letter-spacing:.18em;line-height:1.25;padding:20px 12px;border:2px solid var(--sumi)}
+@media(min-width:768px){.hero-name{font-size:56px;top:40px;right:48px}}
+.hero-name-sub{display:block;font-size:.42em;font-weight:700;letter-spacing:.24em;margin-left:10px}
+.hero-panel{background:var(--moss);color:#fff;text-align:center;padding:40px 16px 48px}
+.hero-copy{font-weight:700;font-size:18px}
+@media(min-width:768px){.hero-copy{font-size:21px}}
+.hero-reserve{margin:16px auto 0;max-width:640px;font-weight:900;font-size:20px;border-top:1px solid #fff;padding-top:16px}
+.hero-panel .btn{margin:16px auto 0;display:flex;width:fit-content;min-width:min(360px,100%)}
+.hero-meta{margin-top:16px;font-size:14px;line-height:1.8}
+.hero :focus-visible{outline-color:#fff}
+/* 事実の帯 */
+.facts{background:var(--washi);border-bottom:1px solid var(--rule)}
+.facts-list{width:min(1120px,calc(100% - 32px));margin-inline:auto;display:grid;grid-template-columns:1fr}
+.facts-list li{padding:20px 0;border-bottom:1px solid var(--rule-soft);text-align:center}
+.facts-list li:last-child{border-bottom:0}
+.facts-list strong{display:block;font-weight:900;font-size:18px;letter-spacing:.05em;color:var(--moss)}
+.facts-list span{display:block;font-size:14px;margin-top:4px}
+@media(min-width:900px){.facts-list{grid-template-columns:repeat(4,1fr)}.facts-list li{border-bottom:0;border-left:1px solid var(--rule-soft);padding:28px 16px}.facts-list li:first-child{border-left:0}}
+/* 写真：全幅大判＋キャプション */
+.photo-wide{width:min(1120px,calc(100% - 32px));margin:48px auto 0}
+@media(min-width:768px){.photo-wide{width:min(1120px,calc(100% - 48px))}}
+.photo-wide img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.photo-wide figcaption,.photo-two figcaption,.dango-photos figcaption{font-size:14px;font-weight:700;color:var(--moss);border-top:2px solid var(--moss);margin-top:8px;padding-top:8px}
+.photo-two{width:min(1120px,calc(100% - 32px));margin:32px auto 0;display:grid;gap:24px}
+@media(min-width:768px){.photo-two{grid-template-columns:1fr 1fr;width:min(1120px,calc(100% - 48px))}}
+.photo-two img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.ebisu{display:grid;gap:24px;margin-top:56px;align-items:center}
+@media(min-width:768px){.ebisu{grid-template-columns:1fr 1fr;gap:40px}}
+.photo-ebisu img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ebisu .h3{text-align:left;margin:0 0 12px}
+.ebisu .h3::after{margin:10px 0 0}
+/* 献立表：点線リーダー */
+.dango-photos{display:grid;gap:24px;margin-bottom:24px}
+@media(min-width:600px){.dango-photos{grid-template-columns:1fr 1fr}}
+.dango-photos img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.menu-list{border-top:1px solid var(--rule)}
+.menu-list>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px dotted var(--rule)}
+.menu-list dt{font-weight:700}
+.menu-list .desc{display:block;font-weight:500;font-size:14px;margin-top:2px}
+.menu-list dd{font-weight:900;font-size:22px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.menu-list dd .pre{font-size:13px;font-weight:700}
+.menu-list .dd-text{font-size:16px}
+.mark{display:inline-block;min-width:26px;margin-right:8px;background:var(--moss);color:#fff;text-align:center;font-weight:700;font-size:14px;line-height:26px}
+/* 表 */
+.info-table{width:100%;border-collapse:collapse;border-top:2px solid var(--moss)}
+.info-table th,.info-table td{padding:14px;border-bottom:1px solid var(--rule-soft);text-align:left;vertical-align:top;line-height:1.8}
+.info-table th{width:8em;font-weight:700;color:var(--moss);background:var(--washi)}
+.section-tint .info-table th{background:var(--washi2)}
+.tel-link{font-weight:900;font-size:20px;font-variant-numeric:tabular-nums}
+.map{border:2px solid var(--moss);margin-top:32px;background:#fff}
+.map iframe{display:block;width:100%;height:360px;border:0}
+@media(min-width:900px){.map iframe{height:440px}}
+.btn-stack{margin-top:24px;text-align:center}
+.link-list{margin-top:24px;display:grid;gap:8px}
+.link-list a{display:inline-flex;align-items:center;min-height:48px;font-weight:700}
+/* FAQ */
+.faq{border-top:2px solid var(--moss)}
+.faq-item{border-bottom:1px solid var(--rule-soft)}
+.faq-item h3{font-size:16px}
+.faq-q{position:relative;width:100%;min-height:64px;padding:16px 56px 16px 8px;background:transparent;border:0;text-align:left;cursor:pointer;font-weight:700;font-size:17px;line-height:1.6;color:var(--sumi)}
+.faq-q::after{content:"";position:absolute;right:20px;top:50%;width:20px;height:3px;margin-top:-2px;background:var(--moss)}
+.faq-q::before{content:"";position:absolute;right:28px;top:50%;width:3px;height:20px;margin-top:-10px;background:var(--moss)}
+.faq-q[aria-expanded="true"]::before{display:none}
+.faq-a{padding:0 8px 24px}
+.faq-a[hidden]{display:none}
+/* 予約：苔色地 */
+.reserve{background:var(--moss);color:#fff;padding:72px 0;text-align:center}
+@media(min-width:768px){.reserve{padding:112px 0}}
+.reserve a{color:#fff}
+.reserve :focus-visible{outline-color:#fff}
+.reserve-lead{font-weight:900;font-size:22px}
+.reserve-num{margin-top:16px;font-weight:900;font-size:44px;line-height:1.3;font-variant-numeric:tabular-nums}
+.reserve-num a{text-underline-offset:6px}
+@media(min-width:768px){.reserve-lead{font-size:27px}.reserve-num{font-size:68px}}
+.reserve-meta{margin-top:24px;font-size:14px;line-height:1.9}
+/* サンプル・フッター */
+.sample-note{padding:56px 0}
+.sample-note p{font-size:14px}
+.site-footer{background:var(--sumi);color:#fff;padding:56px 0 32px;font-size:14px;line-height:1.9;text-align:center}
+.site-footer a{color:#fff}
+.site-footer :focus-visible{outline-color:#fff}
+.footer-grid{display:grid;gap:24px}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr;text-align:left}}
+.footer-name{font-weight:900;font-size:20px;letter-spacing:.08em}
+.footer-demo{margin-top:32px;padding-top:16px;border-top:1px solid #fff}
+/* モバイル固定バー */
+.call-bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--cta);border-top:2px solid #fff}
+.call-bar a{display:flex;align-items:center;justify-content:center;gap:16px;min-height:64px;padding:8px 16px;color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+.call-bar-num{font-weight:900;font-size:24px;font-variant-numeric:tabular-nums}
+@media(min-width:768px){.call-bar{display:none}}
+*{animation:none!important;transition:none!important}
